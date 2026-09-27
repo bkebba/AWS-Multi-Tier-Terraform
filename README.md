@@ -10,20 +10,15 @@ Instead of creating the resources manually in the AWS Console, I used Terraform 
 
 ## Architecture
 
-The basic traffic flow is:
+The application uses a multi-tier AWS architecture with the load balancer in the public layer, EC2 application servers in private subnets, and the database in private database subnets.
 
-```text
-Internet
-   |
-   v
-Application Load Balancer
-   |
-   v
-EC2 Application Servers
-   |
-   v
-RDS MySQL Database
-```
+![AWS Multi-Tier Architecture](Screenshots/AWS-Multi-Tier-Architecture.png)
+
+### Network Layout
+
+The VPC is spread across two Availability Zones, with public, private application, and private database subnets.
+
+![AWS Network Architecture](Screenshots/AWS-Network-Architecture.png)
 
 The infrastructure is spread across two Availability Zones in the London region (`eu-west-2`).
 
